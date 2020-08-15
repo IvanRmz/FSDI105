@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/regiterStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600;700&family=Petit+Formal+Script&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqsxPgQO8qjJN7M2WuyUdraFFN1ys0IqB_yw&usqp=CAU" alt="Logo">
+        <div class="title">
+            <h1>The Fashion Pet</h1>
+        </div>
+        <img src="https://i.pinimg.com/originals/94/75/f2/9475f2a46e4f1d2d16816f4e1f0a142d.png" alt="footprint">
+    </header>
+
+    <section>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.hmtl">Services</a>
+            <a href="#">Register</a>
+        </nav>
+    </section>
+
+    <main id="main">
+        <form action="#">
+            <fieldset>
+                <legend>Pet Information</legend>
+                <p>
+                    <label for = "pet">Name:</label>
+                    <input type="text" id="petName">
+                </p>
+                <p>
+                    <label for = "age">Age:</label>
+                    <input type="number" name="petAge" id="petAge">
+                </p>
+                <p>
+                    <label for = "type">Type:</label>
+                    <!-- <input type="text" name="petType" id="petType"> -->
+                    <select name="types" id="petType">
+                        <option value="" disabled selected> ---- Select a Type ----</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                        <option value="Fish">Fish</option>
+                        <option value="Bird">Bird</option>
+                        <option value="Hamster">Hamster</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for = "breed">Breed:</label>
+                    <input type="text" name="petBreed" id="petBreed">
+                </p>
+                <p>
+                    <label for = "gender">Gender:</label>
+                    <input type="text" name="petGender" id="petGender">
+                </p>
+                <p>
+                    <label for = "service">Services:</label>
+                    <!-- <input type="text" name="petService" id="petService"> -->
+                    <select name="services" id="petServices">
+                        <option value="" disabled selected> ---- Select a Service ----</option>
+                        <option value="Shower">Shower</option>
+                        <option value="Hgair Cut">Hair Cut</option>
+                        <option value="Full Service">Full Service</option>
+                    </select>
+                </p>
+                
+                <p>
+                    <label for = "allergy">Allergy:</label>
+                    <input type="text" name="petAllergy" id="petAllergy">
+                </p>
+                <fieldset id="childFieldset">
+                    <legend>Owner's Information</legend>
+                    <p>
+                        <label for = "ownerName">Owner's Name:</label>
+                        <input type="text" name="petOwnerName" id="petOwnerName">
+                    </p>
+                    <p>
+                        <label for = "contactPhone">Contact Phone:</label>
+                        <input type="text" name="petOwnerContactPhone" id="petOwnerContactPhone">
+                    </p>
+                </fieldset>
+            </fieldset>
+            <p>
+                <input type="button" value="Register" onclick="registerPet();">
+            </p>
+        </form>
+        
+    </main>
+
+    <div id = "pets-count">
+    </div>
+
+    <section id="pets">
+        
+    </section>
+
+    <footer>
+        <div id="info">
+
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/directory.js"></script>
+</body>
+</html>
