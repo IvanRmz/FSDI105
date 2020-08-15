@@ -55,3 +55,18 @@ main input[type=button] {
     border-radius: 5px;
     display: flex;
 }
+
+.search-section{
+    margin-top: 5rem;
+}
+.table-container {
+    margin-top: 1rem;
+}
+
+.highlight{
+    background-color: greenyellow;
+}
+
+.error {
+    color: red;
+}

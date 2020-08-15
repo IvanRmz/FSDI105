@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/regiterStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;600;700&family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6da635e2db.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
     <header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqsxPgQO8qjJN7M2WuyUdraFFN1ys0IqB_yw&usqp=CAU" alt="Logo">
+        <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqsxPgQO8qjJN7M2WuyUdraFFN1ys0IqB_yw&usqp=CAU" alt="Logo">
         <div class="title">
             <h1>The Fashion Pet</h1>
         </div>
@@ -22,11 +23,17 @@
     </header>
 
     <section>
-        <nav class="menu">
+        <nav id ="menu1" class="menu">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="services.hmtl">Services</a>
+            <a href="services.html">Services</a>
             <a href="#">Register</a>
+        </nav>
+        <nav id ="menu2" class="menu">
+            <a href="index.html">Home 2</a>
+            <a href="about.html">About 2</a>
+            <a href="services.html">Services 2</a>
+            <a href="#">Register 2</a>
         </nav>
     </section>
 
@@ -97,19 +104,45 @@
         
     </main>
 
-    <div id = "pets-count">
+    <!-- <div id = "pets-count">
     </div>
 
     <section id="pets">
         
+    </section> -->
+    <section class="container search-section form-inline">
+        <input class="form-control" for="search" name = "search" id = "petSearch">
+        <button class="btn btn-primary" onclick="searchPet()"><i class="fas fa-search"></i></button>
+        <p id="msg" class="error">  * text not finded</p>
     </section>
 
+    <section class="container">
+        <table class="table table-container">
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Type</th>
+                <th>Gender</th>
+                <th>Breed</th>
+                <th>Service</th>
+                <th>Allergy</th>
+                <th>Ownwer's Name</th>
+                <th>Contact Phone</th>
+            </thead>
+            <tbody id="rowPet">
+
+            </tbody>
+        </table>
+    </section>
     <footer>
         <div id="info">
 
         </div>
     </footer>
     <script src="js/script.js"></script>
-    <script src="js/directory.js"></script>
+    <!-- <script src="js/directory.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/test5.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>

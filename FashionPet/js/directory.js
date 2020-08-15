@@ -20,7 +20,6 @@ function display(){
         <h1>Total of Pets: ${pets.length}</h1>
     `;
     pets.forEach(pet => {
-
         text += `
             <div class = "pet">
                 <img src="${mapImages.get(pet.type)}" alt="pet image">

@@ -29,7 +29,7 @@ document.getElementById("info").innerHTML = `
 
 
 // object constructor for the pets
-
+var counter  = 1;
 class Pet {
     constructor(name,age,type,breed,gender,service,allergy,ownersName,contactPhone){
         this.name = name;
@@ -41,6 +41,7 @@ class Pet {
         this.allergy = allergy;
         this.ownersName = ownersName;
         this.contactPhone = contactPhone;
+        this.id = counter++; 
     }
 }
 
@@ -87,7 +88,8 @@ function registerPet () {
     // console.log(newPet);
     salon.pets.push(newPet);
     clear();
-    display();
+    displayTable(newPet);
+    // display();
 }
 
 function clear() {
@@ -103,3 +105,81 @@ function clear() {
 }
 
 // display on the console the oldest pet and the youngest pet.
+
+
+
+function displayTable(aPet) {
+    var tbody = document.getElementById("rowPet");
+    var row = `
+    <tr id = "${aPet.id}">
+        <td>${aPet.name}</td>
+        <td>${aPet.age}</td>
+        <td>${aPet.type}</td>
+        <td>${aPet.gender}</td>
+        <td>${aPet.breed}</td>
+        <td>${aPet.service}</td>
+        <td>${aPet.allergy}</td>
+        <td>${aPet.ownersName}</td>
+        <td>${aPet.contactPhone}</td>
+        <td><button class = "btn btn-danger" onclick="deletePet(${aPet.id})"><i class="fas fa-trash-alt"></i></button><td>
+    </tr>`;
+    tbody.innerHTML+=row
+}
+
+function displayPets(pets) {    
+    pets.forEach(pet => {
+        displayTable(pet);
+    });
+}
+function refreshTable(){
+    var tbody = document.getElementById("rowPet");
+    tbody.innerHTML=""
+}
+
+
+function deletePet(petID) {
+    console.log("delete pet id : " + petID);
+    var tr = $("#"+petID);
+    salon.pets.splice(
+        salon.pets.forEach(pet=>{
+            if(pet.id === petID) 
+                return salon.pets.indexOf(pet);
+        })
+        ,1
+    );
+    tr.remove();
+}
+
+function searchPet() {
+    var ss = $("#petSearch").val();
+    var searchString = ss.toLowerCase();
+    console.log(searchString);
+    $("tr").removeClass("highlight");
+    $("#msg").hide();
+    if(searchString === ""){
+        // refreshTable();
+        // displayPets(salon.pets);
+    } else {
+        var petHighlight = false;
+        salon.pets.forEach(pet=> { 
+            if(pet.name.toLowerCase().includes(searchString) ||
+                pet.type.toLowerCase().includes(searchString) || 
+                pet.gender.toLowerCase().includes(searchString) || 
+                pet.breed.toLowerCase().includes(searchString)||
+                pet.service.toLowerCase().includes(searchString)||
+                pet.allergy.toLowerCase().includes(searchString)||
+                pet.ownersName.toLowerCase().includes(searchString)
+                ){
+                    $("#" + pet.id).addClass("highlight");
+                    petHighlight = true;
+            } 
+        });
+        if(!petHighlight){
+            $("#msg").show();
+        }
+        // refreshTable();
+        // displayPets(newArray);
+
+    }
+}
+displayPets(salon.pets);
