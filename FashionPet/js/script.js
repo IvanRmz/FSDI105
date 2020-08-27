@@ -46,7 +46,6 @@ class Pet {
 }
 
 const scooby = new Pet("Scooby",30,"Dog","Dane","Male","Full Service","none","Shaggy","555-555-556");
-// console.log(scooby);
 const scrapy = new Pet("Scrapy",20,"Dog","Dane","Male","Nails cut","none","Shaggy","555-555-556");
 const beethoven = new Pet("Beethoven",40,"Dog","St. Bernard","Male","Shower","none","Newton","555-555-557");
 const slinky = new Pet("Slinky ",80,"Dog","Dachshund","Male","Shower","none","Andy","555-555-558");
@@ -74,22 +73,66 @@ const petOwnerNameInput =  document.getElementById("petOwnerName");
 const petOwnerContactPhoneInput =  document.getElementById("petOwnerContactPhone");
 
 function registerPet () {
-    var newPet = new Pet(
-        petNameInput.value,
-        Number(petAgeInput.value),
-        petTypeInput.value,
-        petBreedInput.value,
-        petGenderInput.value,
-        petServiceInput.value,
-        petAllergyInput.value,
-        petOwnerNameInput.value,
-        petOwnerContactPhoneInput.value
-    );
-    // console.log(newPet);
-    salon.pets.push(newPet);
-    clear();
-    displayTable(newPet);
-    // display();
+    if(checkinputcalues()){
+        var newPet = new Pet(
+            petNameInput.value,
+            Number(petAgeInput.value),
+            petTypeInput.value,
+            petBreedInput.value,
+            petGenderInput.value,
+            petServiceInput.value,
+            petAllergyInput.value,
+            petOwnerNameInput.value,
+            petOwnerContactPhoneInput.value
+        );
+        // console.log(newPet);
+        salon.pets.push(newPet);
+        clear();
+        displayTable(newPet);
+        // display();
+    }
+}
+
+function checkinputcalues() {
+    if(petNameInput.value === ""){
+        alert("Insert the pet name");
+        return false;
+    }
+    if(petAgeInput.value === ""){
+        alert("Insert the pet age");
+        return false;
+    }
+    if(petTypeInput.value === ""){
+        alert("Insert the pet type");
+        return false;
+    }
+    if(petBreedInput.value === ""){
+        alert("Insert the pet breed");
+        return false;
+    }
+    if(petGenderInput.value === ""){
+        alert("Insert the pet gender");
+        return false;
+    }
+    if(petServiceInput.value === ""){
+        alert("Insert the service");
+        return false;
+    }
+    if(petAllergyInput.value === ""){
+        alert("Insert the pet allergy");
+        return false;
+    }
+    if(petOwnerNameInput.value === ""){
+        alert("Insert the owners name");
+        return false;
+    }
+    if(petOwnerContactPhoneInput.value === ""){
+        alert("Insert the owners contact phone");
+        return false;
+    }
+
+
+    return true;
 }
 
 function clear() {
@@ -182,4 +225,11 @@ function searchPet() {
 
     }
 }
-displayPets(salon.pets);
+
+function init(){
+    console.log("init()");
+    displayPets(salon.pets);
+}
+
+window.onload = init();
+// window.addEventListener('load', init(), false); 
